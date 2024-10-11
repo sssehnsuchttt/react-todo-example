@@ -1,0 +1,111 @@
+.dialog_bg {
+    left: 0;
+    top: 0;
+    display: flex;
+    position: absolute;
+    width: 0vw;
+    height: 0vh;
+    background-color: rgba(0, 0, 0, 0.0);
+    transition: background-color 0.3s linear, width 0s 0.3s, height 0s 0.3s;
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog_bg.active {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.611);
+    transition: background-color 0.3s linear, width 0s, height 0s;
+}
+
+.dialog_window {
+    background-color: var(--color-secondary-background);
+    flex-direction: column;
+    border-radius: 25px;
+    width: 400px;
+    min-height: 200px;
+    display: flex; 
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in, visibility 0s 0.3s;
+}
+
+.dialog_window.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-out;
+}
+
+.dialog_header {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.dialog_header h1 {
+    padding: 0;
+    margin-top: calc(var(--margin)*2);
+    margin-left: calc(var(--margin)*2);
+    margin-right: calc(var(--margin)*2);
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+
+.dialog_text p {
+    text-align: left;
+    font-weight: 400;
+    font-size: 1rem;
+    margin: var(--margin);
+    margin-left: calc(var(--margin)*2);
+    margin-right: calc(var(--margin)*2);
+}
+
+.dialog_text {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog_buttons {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex-direction: row;
+    margin: var(--margin);
+    margin-right: calc(var(--margin)*2);
+    margin-bottom: calc(var(--margin)*2);
+}
+
+.dialog_buttons button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    border: none;
+    background-color: var(--color-dialog-accept-button);
+    color: var(--color-accent);
+    padding: 0;
+    text-align: right;
+    user-select: none;
+}
+
+.dialog_button {
+    margin-right: calc(var(--margin));
+}
+
+.dialog_button.inactive {
+    color: var(--color-placeholder)
+}
+
+@media screen and (max-width:769px) {
+    .dialog_window {
+        width: calc(100% - var(--margin)*2);
+    }
+}

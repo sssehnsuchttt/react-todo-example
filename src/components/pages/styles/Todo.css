@@ -1,0 +1,233 @@
+.Todo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: var(--color-background);
+    padding: var(--margin);
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: var(--color-secondary-background);
+    width: 100%;
+    max-width: 700px;
+    height: 100%; 
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 20px;
+    padding: var(--margin);
+    box-sizing: border-box;
+}
+
+.card h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.add_task_container {
+    width: 100%;
+    display: flex;
+    min-height: 50px;
+    margin-bottom: var(--margin);
+    gap: 4px;
+    border-radius: 90px;
+}
+
+.add_task_container input {
+    flex-grow: 1;
+    height: 100%;
+    background-color: var(--color-secondary-accent);
+    border: 2px solid transparent;
+    border-radius: 25px;
+    padding-left: var(--margin);
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.add_task_container input::placeholder {
+    color: var(--color-placeholder);
+}
+
+.add_task_container input:focus {
+    border-color: var(--color-accent);
+    outline: none; 
+}
+
+.add_task_container button {
+    background-color: var(--color-accent);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;  
+    padding: 0 var(--margin);
+}
+
+#scrollable_container {
+    min-width: 100%;
+    margin-top: var(--margin);
+    margin-left: calc(var(--margin) * -1);
+    margin-right: calc(var(--margin) * -1);
+    overflow-y: scroll;
+}
+
+#task_container {
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 300ms ease;
+}
+
+.task {
+    display: flex;
+    background-color: var(--color-secondary-accent);
+    align-items: center;
+    padding: var(--margin);
+    min-height: 40px;
+    border-radius: 5px;
+    transition: transform 0.3s ease, height 0.3s ease; 
+}
+
+.task_name {
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.task_name::after {
+    content: '';
+    position: absolute;
+    left: -10%;
+    bottom: 50%;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-placeholder); 
+    transition: width 0.3s ease;
+}
+
+.task_name.crossed {
+    color: var(--color-placeholder);
+}
+
+.task_name.crossed::after {
+    width: 120%;
+}
+
+.space_filler {
+    flex: 1;
+    height: 100%;
+}
+
+.task .material-symbols-rounded {
+    color: white;
+    font-size: 24px;
+    border-radius: 90px;
+    padding: calc(var(--margin)/2);
+    background-color: var(--color-accent);
+    margin-left: calc(var(--margin)/2);
+    cursor: pointer;
+    user-select: none; 
+}
+
+.checkbox_container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.checkbox_container input {
+    display: none; 
+}
+
+.checkbox_container .checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-accent);
+    border-radius: 90px;
+    margin-right: var(--margin);
+    position: relative;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.checkbox_container .checkmark::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px; 
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-accent);
+    border-radius: 90px;
+    transform: scale(0); 
+    transition: transform 0.3s ease;
+}
+
+.checkbox_container input:checked + .checkmark::before {
+    animation: grow_shrink 0.3s ease-in-out forwards;
+}
+
+.checkbox_container input:not(:checked) + .checkmark::before {
+    animation: shrink_grow 0.3s ease-in-out forwards;
+}
+
+.checkbox_container input:checked + .checkmark {
+    border-color: var(--color-accent);
+}
+
+button, .material-symbols-rounded {
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+button:active, .material-symbols-rounded:active {
+    transform: scale(1.05);
+}
+
+@keyframes grow_shrink {
+    0% {
+      transform: scale(0); 
+      opacity: 30%;
+    }
+    50% {
+      transform: scale(2); 
+      opacity: 80%;
+    }
+    100% {
+      transform: scale(1); 
+      opacity: 100%;
+    }
+}
+
+@keyframes shrink_grow {
+    0% {
+      transform: scale(1); 
+      opacity: 100%;
+    }
+    50% {
+      transform: scale(2); 
+      opacity: 80%;
+    }
+    100% {
+      transform: scale(0); 
+      opacity: 30%;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .Todo {
+        padding: 0;
+        background-color: var(--color-secondary-background);
+    }
+
+    .card {
+        max-width: unset; 
+    }
+}

@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Todo } from './components/pages/Todo';
+import { ConfirmDialogProvider } from './components/ui/ConfirmDialog';
+import { InputDialogProvider } from './components/ui/InputDialog';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    const setVh = () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    setVh();
+
+    window.addEventListener('resize', setVh);
+
+    return () => {
+      window.removeEventListener('resize', setVh);
+    };
+  }, []); 
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ConfirmDialogProvider>
+        <InputDialogProvider>
+            <Router>
+                <Routes>
+                    <Route path="/*" element={<Todo />} />
+                </Routes>
+            </Router>
+        </InputDialogProvider>
+    </ConfirmDialogProvider>
+);
 }
 
 export default App;
