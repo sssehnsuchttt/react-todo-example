@@ -146,7 +146,7 @@ function Todo() {
                     <Tab
                         active={activeSection === 'active'}
                         onClick={() => handleTabClick('active')}
-                        text="Невыполненные"
+                        text="Активные"
                     />
                 </Tabs>
 
