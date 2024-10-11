@@ -104,7 +104,7 @@
 .task_name::after {
     content: '';
     position: absolute;
-    left: -10%;
+    left: -5%;
     bottom: 50%;
     width: 0%;
     height: 2px;
@@ -117,7 +117,7 @@
 }
 
 .task_name.crossed::after {
-    width: 120%;
+    width: 110%;
 }
 
 .space_filler {
