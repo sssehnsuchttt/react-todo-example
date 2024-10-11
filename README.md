@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+# Пример Todo-приложения на React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Данный репозиторий содержит выполненное **тестовое задание** по созданию Todo-приложения. Интерфейс был разработан в духе **Material Design 3**, все стили и компоненты были созданы с нуля.
 
-## Available Scripts
+## Функционал
+- Добавление новых задач
+- Просмотр списков всех задач, невыполненных и выполненных задач
+- Редактирование задач
+- Удаление задач
+- Динамическое обновление URL в зависимости от активного фильтра задач
 
-In the project directory, you can run:
+## Технологии
+- **React** с использованием **TypeScript**
+- Управление состоянием через **React Hooks**
+- Навигация с использованием **React Router**
+- Кастомная стилизация через **CSS**
+- Юнит-тесты с помощью **Jest** и **React Testing Library**
 
-### `npm start`
+## Как запустить проект
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Клонировать данный репозиторий:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    ```bash
+    git clone https://github.com/sssehnsuchttt/react-todo-example/
+    ```
 
-### `npm test`
+2. Перейти в папку проекта:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ```bash
+    cd react-todo-example
+    ```
+    
+3. Установить зависимости:
 
-### `npm run build`
+    ```bash
+    npm install
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Запустить сервер разработки:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    npm start
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Открыть [http://localhost:3000](http://localhost:3000) для просмотра приложения в браузере.
 
-### `npm run eject`
+## Запуск тестов
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Тесты покрывают функционал создания, редактирования и удаления задач. Для запуска тестов используйте команду:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm test
+```
+## Скриншоты интерфейса
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![image](https://github.com/user-attachments/assets/d95c576f-e0fb-45d7-bc99-add599656308)
+![image](https://github.com/user-attachments/assets/7d3a1bdf-7413-4e3d-875d-efa6ec9bccb4)
+![image](https://github.com/user-attachments/assets/243965b3-f867-4706-846d-50cb8f124937)
+![image](https://github.com/user-attachments/assets/a5474e79-6918-4bba-a249-c9128b2f344b)
+![image](https://github.com/user-attachments/assets/00bc8203-fac8-41bf-a1c4-c10521e02415)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
